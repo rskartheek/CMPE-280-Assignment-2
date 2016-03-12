@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="registrationPageStyles.css"/>
+</head>
+<body>
+
+<div class="container">
+<div class="header">Registration Page</div>
+<div class="innerContainer">
+<form name="registrationForm">
+    <div id="mainHelper">Please correct the errors and submit again</div>
+        <div class="wrapper">
+            <div class="label">
+                First Name
+            </div>
+            <div class="labelValue">
+                <input type="text" id="firstNameInput" required/>
+            </div>
+            <div class="clear">
+
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Last Name
+            </div>
+            <div class="labelValue">
+                <input type="text" id="lastNameInput" required/>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Email
+            </div>
+            <div class="labelValue">
+                <input type="email" oninput="validateEmail(this.value)" id="emailInput" required/>
+            </div>
+
+            <div class="helperDiv" id="emailIdValidation">
+                Not a valid Email Address
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="label">
+                Password
+            </div>
+            <div class="labelValue">
+                <input type="password" oninput="validatePassword(this.value)" id="passwordInput" required/>
+            </div>
+            <div class="helperDiv" id="passwordValidation">
+                <div>
+                    <div id="lengthHelper" class="errorClass">Must have atleast 8 characters</div>
+                    <div id="caseHelper" class="errorClass">Must contain 3 uppercase letters</div>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <div id="lowerCase" class="errorClass">Must contain 2 lower case letters</div>
+                    <div id="specialCase" class="errorClass">Must contain 2 special characters</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="meterWrapper">
+                    <meter id="passwordMeter" min="0"  max="100"></meter>
+                </div>
+
+                <div class="clear"></div>
+
+
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <div class="wrapper">
+            <div class="label">
+                Confirm Password
+            </div>
+            <div class="labelValue">
+                <input oninput="confirmPassword(this.value)" type="password" id="confirmPasswordInput" required/>
+            </div>
+            <div class="helperDiv" id="confirmPasswordHelper">
+                Passwords do not match
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                D.O.B
+            </div>
+            <div class="labelValue">
+                <input type="date" id="dateInput" required/>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                D.O.B with time
+            </div>
+            <div class="labelValue">
+                <input type="date" id="dateTimeInput" required/>
+                <input type="time" id="dateTime" required/>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Local D.O.B
+            </div>
+            <div class="labelValue">
+                <input type="datetime-local" id="dateTimeLocalInput" required/>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                SSN :
+            </div>
+            <div class="labelValue">
+                <input type="text" oninput="validateSSN(this.value)" id="ssnInputField" required/>
+            </div>
+            <div class="helperDiv" id="ssnInput">Invalid SSN Format</div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Phone
+            </div>
+            <div class="labelValue">
+                <input oninput="validatePhoneNumber(this.value)" type="tel" maxlength="10" id="phoneInput" required/>
+            </div>
+            <div class="helperDiv" id="phoneNumberValidation">
+                Not a valid format for the Mobile Number (Ex: 123-456-7890)
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Credit Card No
+            </div>
+            <div class="labelValue">
+                <input oninput="validateCardNumber(this.value)" type="text" id="creditCardInput" required/>
+            </div>
+            <div class="helperDiv" id="cardNumberValidation">
+                Not a valid format of credit card number (Ex: 1234-5678-0987-6543)
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="label">
+                Select Security Question:
+            </div>
+            <fieldset class="labelValue">
+
+                <label>
+                    <input oninput="showSecurityField()" type="text" name="securityQuestion" list="securityQuestions">
+                    <datalist id="securityQuestions">
+                        <option value="Sum of 2 + 3">
+                        </option>
+                        <option value="Sum of 100 + 200">
+                        </option>
+                        <option value="23 * 100">
+                        </option>
+                        <option value="Capital of India">
+                        </option>
+                        <option value="Capital of USA?">
+                        </option>
+
+                    </datalist>
+                </label>
+
+            </fieldset>
+            <div class="clear"></div>
+
+        </div>
+        <div id="securityQuesWrapper" class="wrapper">
+            <div class="label">Security Question Answer</div>
+            <div class="labelValue">
+                <input type="text" id="securityQuesValue"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+<div class="buttonContainer">
+        <input  onclick="createForm()" class="submitButton" type="submit"  value="Create"/>
+</div>
+
+</form>
+</div>
+</div>
+</body>
+</html>
